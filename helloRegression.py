@@ -1,9 +1,15 @@
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 # Create 100 phony x, y data points in Numpy, y = x * 0.1 + 0.3
 x_data = np.random.rand(100).astype(np.float32)
 y_data = x_data * 0.1 + 0.3
+
+# Plot graph
+plt.scatter(x_data, y_data)
+plt.show()
 
 # Try to find values for W and b that compute y_data = W * x_data + b
 # (We know that W should be 0.1 and b 0.3, but TensorFlow will
@@ -23,6 +29,7 @@ init = tf.global_variables_initializer()
 # Launch the graph.
 sess = tf.Session()
 sess.run(init)
+
 
 # Fit the line.
 for step in range(201):
